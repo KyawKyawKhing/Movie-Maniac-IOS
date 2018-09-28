@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		997E2985215DE29A00A522FE /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E2984215DE29A00A522FE /* Movie.swift */; };
+		997E2988215DE62700A522FE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E2987215DE62700A522FE /* NetworkManager.swift */; };
+		997E298A215DE68700A522FE /* SharedConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E2989215DE68700A522FE /* SharedConstants.swift */; };
+		997E298E215E63E600A522FE /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E298D215E63E600A522FE /* CustomLoadingView.swift */; };
+		997E2991215E657200A522FE /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E2990215E657200A522FE /* DataModel.swift */; };
+		997E2994215E6C4C00A522FE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E2993215E6C4C00A522FE /* Extensions.swift */; };
 		999ADA4C215688FF00E2830A /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999ADA4A215688FF00E2830A /* MovieCollectionViewCell.swift */; };
 		999ADA4D215688FF00E2830A /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 999ADA4B215688FF00E2830A /* MovieCollectionViewCell.xib */; };
 		999ADA4F2156908000E2830A /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999ADA4E2156908000E2830A /* CustomButton.swift */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		997E2984215DE29A00A522FE /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		997E2987215DE62700A522FE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		997E2989215DE68700A522FE /* SharedConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedConstants.swift; sourceTree = "<group>"; };
+		997E298D215E63E600A522FE /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
+		997E2990215E657200A522FE /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		997E2993215E6C4C00A522FE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		999ADA4A215688FF00E2830A /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		999ADA4B215688FF00E2830A /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		999ADA4E2156908000E2830A /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -45,6 +57,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		997E2982215DE25A00A522FE /* url-session */ = {
+			isa = PBXGroup;
+			children = (
+				997E2986215DE4BA00A522FE /* manager */,
+				997E2983215DE27C00A522FE /* vos */,
+			);
+			path = "url-session";
+			sourceTree = "<group>";
+		};
+		997E2983215DE27C00A522FE /* vos */ = {
+			isa = PBXGroup;
+			children = (
+				997E2984215DE29A00A522FE /* Movie.swift */,
+			);
+			path = vos;
+			sourceTree = "<group>";
+		};
+		997E2986215DE4BA00A522FE /* manager */ = {
+			isa = PBXGroup;
+			children = (
+				997E2987215DE62700A522FE /* NetworkManager.swift */,
+			);
+			path = manager;
+			sourceTree = "<group>";
+		};
+		997E298F215E656400A522FE /* model */ = {
+			isa = PBXGroup;
+			children = (
+				997E2990215E657200A522FE /* DataModel.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
 		999ADA402156883300E2830A /* cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +127,7 @@
 		999ADA442156887E00E2830A /* networks */ = {
 			isa = PBXGroup;
 			children = (
+				997E2982215DE25A00A522FE /* url-session */,
 			);
 			path = networks;
 			sourceTree = "<group>";
@@ -90,6 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				999ADA512156971800E2830A /* CellRegisterHelper.swift */,
+				997E2989215DE68700A522FE /* SharedConstants.swift */,
+				997E298D215E63E600A522FE /* CustomLoadingView.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -99,6 +147,7 @@
 			children = (
 				999ADA4E2156908000E2830A /* CustomButton.swift */,
 				999ADA532156993000E2830A /* CardView.swift */,
+				997E2993215E6C4C00A522FE /* Extensions.swift */,
 			);
 			path = components;
 			sourceTree = "<group>";
@@ -136,6 +185,7 @@
 		99D5711921294FA600246A4C /* Chill Session - Movies, Series */ = {
 			isa = PBXGroup;
 			children = (
+				997E298F215E656400A522FE /* model */,
 				999ADA48215688AD00E2830A /* db */,
 				999ADA472156889100E2830A /* vos */,
 				999ADA462156888A00E2830A /* components */,
@@ -224,10 +274,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				999ADA4F2156908000E2830A /* CustomButton.swift in Sources */,
+				997E298A215DE68700A522FE /* SharedConstants.swift in Sources */,
+				997E2991215E657200A522FE /* DataModel.swift in Sources */,
 				999ADA4C215688FF00E2830A /* MovieCollectionViewCell.swift in Sources */,
+				997E2985215DE29A00A522FE /* Movie.swift in Sources */,
 				99D5711D21294FA600246A4C /* NowPlayingViewController.swift in Sources */,
+				997E2988215DE62700A522FE /* NetworkManager.swift in Sources */,
+				997E2994215E6C4C00A522FE /* Extensions.swift in Sources */,
 				99D5711B21294FA600246A4C /* AppDelegate.swift in Sources */,
 				999ADA542156993000E2830A /* CardView.swift in Sources */,
+				997E298E215E63E600A522FE /* CustomLoadingView.swift in Sources */,
 				999ADA522156971800E2830A /* CellRegisterHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -375,6 +431,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Q87CY759X;
 				INFOPLIST_FILE = "Chill Session - Movies, Series/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -393,6 +450,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3Q87CY759X;
 				INFOPLIST_FILE = "Chill Session - Movies, Series/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

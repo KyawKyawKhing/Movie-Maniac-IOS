@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCR-Xs-oHM" customClass="CardView" customModule="Chill_Session___Movies__Series" customModuleProvider="target">
                         <rect key="frame" x="16" y="0.0" width="260" height="175"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_movie_img" translatesAutoresizingMaskIntoConstraints="NO" id="tsY-zd-PqC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tsY-zd-PqC">
                                 <rect key="frame" x="0.0" y="0.0" width="120" height="175"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="zNC-Tn-mzV"/>
@@ -112,7 +111,4 @@
             <point key="canvasLocation" x="6" y="11.5"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="dummy_movie_img" width="1000" height="1480"/>
-    </resources>
 </document>

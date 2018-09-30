@@ -14,7 +14,7 @@ class NetworkManager {
     
     var dataTask: URLSessionDataTask?
     
-    func getNowPlayingMovie(completion : @escaping ([Movie]) -> Void) {
+    func loadNowPlayingMovie(completion : @escaping ([Movie]) -> Void) {
         
         if var urlComponent = URLComponents(string: SharedConstants.BASE_URL + SharedConstants.Route.NOW_PLAYING) {
             

@@ -7,51 +7,37 @@
 //
 
 import Foundation
-
-struct BaseResponse : Codable {
-    
-    let page : Int
-    let results : [Movie]
-    let totalResults : Int
-    let totalPages : Int
-    
-    enum CodingKeys : String, CodingKey {
-        case page, results
-        case totalResults = "total_results"
-        case totalPages = "total_pages"
-    }
-
-}
+import CoreData
 
 struct Movie : Codable {
     
-    let voteCount : Int
+    let voteCount : Int32?
     
-    let id : Int
+    let id : Int64?
 
-    let video : Bool
+    let video : Bool?
 
-    let voteAverage : Double
+    let voteAverage : Double?
 
-    let title : String
+    let title : String?
 
-    let popularity : Double
+    let popularity : Double?
 
-    let posterPath : String
+    let posterPath : String?
 
-    let originalLanguage : String
+    let originalLanguage : String?
 
-    let originalTitle : String
+    let originalTitle : String?
 
-//    let genre_ids : [Int]?
+    let genreIds : [Int]?
 
     let backdropPath : String?
 
-    let adult : Bool
+    let adult : Bool?
 
-    let overview : String
+    let overview : String?
 
-    let releaseDate : String
+    let releaseDate : String?
     
     enum CodingKeys: String, CodingKey {
         case id,video,title,popularity, adult, overview
@@ -62,6 +48,64 @@ struct Movie : Codable {
         case originalTitle = "original_title"
         case backdropPath = "backdrop_path"
         case releaseDate = "release_date"
+        case genreIds = "genre_ids"
+    }
+    
+    
+    public static func save(movieList : [Movie], context : NSManagedObjectContext) {
+        
+        movieList.forEach { (movie) in
+            let data = Movies(entity: Movies.entity(), insertInto: context)
+            data.vote_count = movie.voteCount!
+            data.id = movie.id!
+            data.video = movie.video!
+            data.vote_average = movie.voteAverage!
+            data.title = movie.title
+            data.popularity = movie.popularity!
+            data.poster_path = movie.posterPath
+            data.original_language = movie.originalLanguage
+            data.original_title = movie.originalTitle
+            data.genre_ids = movie.genreIds?.description
+            data.backdrop_path = movie.backdropPath
+            data.adult = movie.adult!
+            data.overview = movie.overview
+            data.release_date = movie.releaseDate
+            saveContext(context: context)
+        }
+        
+    }
+    
+    static func saveContext (context : NSManagedObjectContext) {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
+    }
+    
+    public static func getMovieList(context : NSManagedObjectContext) -> [Movies] {
+        var movieList = [Movies]()
+        do {
+            movieList = try context.fetch(Movies.fetchRequest())
+        } catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+        }
+        return movieList
+    }
+    
+    public static func deleteMovieList(context : NSManagedObjectContext) {
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Movies")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print ("There was an error")
+        }
+        
     }
     
 }

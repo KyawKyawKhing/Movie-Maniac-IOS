@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class DataModel {
     
@@ -21,12 +22,16 @@ class DataModel {
         return sharedDataModel
     }
     
-    func loadNowPlayingMovies(completion : @escaping ([Movie]) -> Void) {
+    func getNowPlayingMovies(context : NSManagedObjectContext, completion : @escaping ([Movies]) -> Void) {
         
         let networkManager = NetworkManager()
-        networkManager.getNowPlayingMovie { (movieList) in
+        networkManager.loadNowPlayingMovie { (movieList) in
+            
+            Movie.deleteMovieList(context: context)
+            Movie.save(movieList: movieList, context: context)
+            
             DispatchQueue.main.async {
-                completion(movieList)
+                completion(Movie.getMovieList(context: context))
             }
         }
     }

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 extension UIImageView {
     
@@ -27,6 +28,16 @@ extension UIImageView {
             
         }.resume()
         
+    }
+    
+}
+
+extension UIViewController {
+    
+    var managedObjectContext: NSManagedObjectContext! {
+        get{
+            return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        }
     }
     
 }

@@ -12,21 +12,21 @@ class NowPlayingViewController: UIViewController {
 
     @IBOutlet weak var nowPlayingCollectionView : UICollectionView!
     
-    var movieList : [Movie] = []
+    var movieList : [Movies] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         CellRegisterHelper.registerCellForCollectionView(nibName: "MovieCollectionViewCell", cellId: "MovieCollectionViewCell", collectionView: nowPlayingCollectionView)
     
-        CustomLoadingView.shared().showActivityIndicator(uiView: self.view)
+        CustomLoadingView.shared().showActivityIndicator(uiView: self.nowPlayingCollectionView)
         loadNowPlayingMovie()
         
     }
 
     func loadNowPlayingMovie() {
         
-        DataModel.shared().loadNowPlayingMovies { (movieList) in
+        DataModel.shared().getNowPlayingMovies(context: managedObjectContext) { (movieList) in
             self.movieList = movieList
             self.nowPlayingCollectionView.reloadData()
             CustomLoadingView.shared().hideActivityIndicator(uiView: self.view)
@@ -48,7 +48,7 @@ extension NowPlayingViewController : UICollectionViewDataSource {
         
         cell.lblMovieTitle.text = self.movieList[indexPath.row].title
         
-        cell.ivMovie.loadImageUsingUrlString(url: SharedConstants.IMAGE_BASE_PATH + self.movieList[indexPath.row].posterPath)
+        cell.ivMovie.loadImageUsingUrlString(url: SharedConstants.IMAGE_BASE_PATH + self.movieList[indexPath.row].poster_path!)
         
         return cell
         

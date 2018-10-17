@@ -22,18 +22,26 @@ class DataModel {
         return sharedDataModel
     }
     
-    func getNowPlayingMovies(context : NSManagedObjectContext, completion : @escaping ([Movies]) -> Void) {
+    func getNowPlayingMovies(context : NSManagedObjectContext,
+                             success: @escaping ([Movies]) -> Void,
+                             failure: @escaping (Error) -> Void) {
         
         let networkManager = NetworkManager()
-        networkManager.loadNowPlayingMovie { (movieList) in
+        networkManager.loadNowPlayingMovie(success: { (movieList) in
             
             Movie.deleteMovieList(context: context)
             Movie.save(movieList: movieList, context: context)
             
             DispatchQueue.main.async {
-                completion(Movie.getMovieList(context: context))
+                success(Movie.getMovieList(context: context))
+            }
+            
+        }) { (error) in
+            DispatchQueue.main.async {
+                failure(error)
             }
         }
+        
     }
     
 }

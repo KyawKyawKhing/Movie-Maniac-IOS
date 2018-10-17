@@ -14,7 +14,8 @@ class NetworkManager {
     
     var dataTask: URLSessionDataTask?
     
-    func loadNowPlayingMovie(completion : @escaping ([Movie]) -> Void) {
+    func loadNowPlayingMovie(success: @escaping ([Movie]) -> Void,
+                             failure: @escaping (Error) -> Void) {
         
         if var urlComponent = URLComponents(string: SharedConstants.BASE_URL + SharedConstants.Route.NOW_PLAYING) {
             
@@ -26,6 +27,7 @@ class NetworkManager {
                 
                 if let error = error {
                     print(error)
+                    failure(error)
                     return
                 }
                 
@@ -34,7 +36,7 @@ class NetworkManager {
                 do {
                 
                     let movie = try JSONDecoder().decode(BaseResponse.self, from: data)
-                    completion(movie.results)
+                    success(movie.results)
                     
                 } catch let jsonErr {
                     print("JSONSerialization error ==> \(jsonErr.localizedDescription)")

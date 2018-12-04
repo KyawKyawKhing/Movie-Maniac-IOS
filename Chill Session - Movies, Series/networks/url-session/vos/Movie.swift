@@ -76,14 +76,14 @@ struct Movie : Codable {
     }
     
     static func saveContext (context : NSManagedObjectContext) {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//            } catch {
+//                let nserror = error as NSError
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//            }
+//        }
     }
     
     public static func getMovieList(context : NSManagedObjectContext) -> [Movies] {
@@ -107,5 +107,5 @@ struct Movie : Codable {
         }
         
     }
-    
+    //savecontext in model => can't call AppDelegate
 }

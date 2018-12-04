@@ -14,10 +14,10 @@ class NetworkManager {
     
     var dataTask: URLSessionDataTask?
     
-    func loadNowPlayingMovie(success: @escaping ([Movie]) -> Void,
+    func loadMovie(route:String,success: @escaping ([Movie]) -> Void,
                              failure: @escaping (Error) -> Void) {
-        
-        if var urlComponent = URLComponents(string: SharedConstants.BASE_URL + SharedConstants.Route.NOW_PLAYING) {
+    
+        if var urlComponent = URLComponents(string: SharedConstants.BASE_URL + route) {
             
             urlComponent.query = "\(SharedConstants.QueryString.API_TOKEN)=\(SharedConstants.API_KEY)&\(SharedConstants.QueryString.PAGE)=\(1)"
             

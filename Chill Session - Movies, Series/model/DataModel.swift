@@ -22,12 +22,15 @@ class DataModel {
         return sharedDataModel
     }
     
-    func getNowPlayingMovies(context : NSManagedObjectContext,
+    //like singleton
+    
+    func getMovies(context : NSManagedObjectContext,
+                             route: String,
                              success: @escaping ([Movies]) -> Void,
                              failure: @escaping (Error) -> Void) {
         
         let networkManager = NetworkManager()
-        networkManager.loadNowPlayingMovie(success: { (movieList) in
+        networkManager.loadMovie(route: route,success: { (movieList) in
             
             Movie.deleteMovieList(context: context)
             Movie.save(movieList: movieList, context: context)

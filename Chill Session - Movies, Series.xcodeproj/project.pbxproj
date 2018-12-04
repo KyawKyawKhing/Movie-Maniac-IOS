@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A76892B21B6C4A60076E073 /* PopularViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76892A21B6C4A60076E073 /* PopularViewController.swift */; };
+		6A76892D21B6C4C00076E073 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76892C21B6C4C00076E073 /* TopRatedViewController.swift */; };
+		6A76892F21B6C4D30076E073 /* UpComingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76892E21B6C4D30076E073 /* UpComingViewController.swift */; };
+		6A76893121B6D21E0076E073 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A76893021B6D21E0076E073 /* DetailViewController.swift */; };
 		99097F0321772B8D0006610A /* DimmingPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99097F0221772B8D0006610A /* DimmingPresentationController.swift */; };
 		99097F0521772BB80006610A /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99097F0421772BB80006610A /* GradientView.swift */; };
 		99385045216F3D7B0002675C /* OverviewDialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99385044216F3D7B0002675C /* OverviewDialogViewController.swift */; };
@@ -33,6 +37,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6A76892A21B6C4A60076E073 /* PopularViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularViewController.swift; sourceTree = "<group>"; };
+		6A76892C21B6C4C00076E073 /* TopRatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
+		6A76892E21B6C4D30076E073 /* UpComingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpComingViewController.swift; sourceTree = "<group>"; };
+		6A76893021B6D21E0076E073 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		99097F0221772B8D0006610A /* DimmingPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DimmingPresentationController.swift; sourceTree = "<group>"; };
 		99097F0421772BB80006610A /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		99385044216F3D7B0002675C /* OverviewDialogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewDialogViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +134,10 @@
 			isa = PBXGroup;
 			children = (
 				99D5711C21294FA600246A4C /* NowPlayingViewController.swift */,
+				6A76892A21B6C4A60076E073 /* PopularViewController.swift */,
+				6A76892C21B6C4C00076E073 /* TopRatedViewController.swift */,
+				6A76892E21B6C4D30076E073 /* UpComingViewController.swift */,
+				6A76893021B6D21E0076E073 /* DetailViewController.swift */,
 			);
 			path = viewcontrollers;
 			sourceTree = "<group>";
@@ -177,13 +189,6 @@
 			path = components;
 			sourceTree = "<group>";
 		};
-		999ADA472156889100E2830A /* vos */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = vos;
-			sourceTree = "<group>";
-		};
 		999ADA48215688AD00E2830A /* db */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,7 +221,6 @@
 				99385043216F3D670002675C /* dialog */,
 				997E298F215E656400A522FE /* model */,
 				999ADA48215688AD00E2830A /* db */,
-				999ADA472156889100E2830A /* vos */,
 				999ADA462156888A00E2830A /* components */,
 				999ADA452156888400E2830A /* utils */,
 				999ADA442156887E00E2830A /* networks */,
@@ -304,20 +308,24 @@
 			files = (
 				99097F0521772BB80006610A /* GradientView.swift in Sources */,
 				999ADA4F2156908000E2830A /* CustomButton.swift in Sources */,
+				6A76893121B6D21E0076E073 /* DetailViewController.swift in Sources */,
 				997E298A215DE68700A522FE /* SharedConstants.swift in Sources */,
 				997E2991215E657200A522FE /* DataModel.swift in Sources */,
 				999ADA4C215688FF00E2830A /* MovieCollectionViewCell.swift in Sources */,
 				997E2985215DE29A00A522FE /* Movie.swift in Sources */,
 				99D5711D21294FA600246A4C /* NowPlayingViewController.swift in Sources */,
 				997E2988215DE62700A522FE /* NetworkManager.swift in Sources */,
+				6A76892D21B6C4C00076E073 /* TopRatedViewController.swift in Sources */,
 				9984E55021612F2D005A1953 /* BaseResponse.swift in Sources */,
 				997E2994215E6C4C00A522FE /* Extensions.swift in Sources */,
 				99D5711B21294FA600246A4C /* AppDelegate.swift in Sources */,
+				6A76892F21B6C4D30076E073 /* UpComingViewController.swift in Sources */,
 				9984E54B215F6A21005A1953 /* Movies+CoreDataProperties.swift in Sources */,
 				999ADA542156993000E2830A /* CardView.swift in Sources */,
 				99385045216F3D7B0002675C /* OverviewDialogViewController.swift in Sources */,
 				997E298E215E63E600A522FE /* CustomLoadingView.swift in Sources */,
 				9984E53B215F5E52005A1953 /* Movie.xcdatamodeld in Sources */,
+				6A76892B21B6C4A60076E073 /* PopularViewController.swift in Sources */,
 				9984E54A215F6A21005A1953 /* Movies+CoreDataClass.swift in Sources */,
 				999ADA522156971800E2830A /* CellRegisterHelper.swift in Sources */,
 				99097F0321772B8D0006610A /* DimmingPresentationController.swift in Sources */,

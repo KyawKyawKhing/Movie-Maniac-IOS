@@ -1,35 +1,38 @@
 //
-//  ViewController.swift
+//  TopRatedViewController.swift
 //  Chill Session - Movies, Series
 //
-//  Created by Win Than Htike on 8/19/18.
+//  Created by AcePlus101 on 12/4/18.
 //  Copyright © 2018 PADC. All rights reserved.
 //
 
 import UIKit
 
-class NowPlayingViewController: UIViewController {
+class TopRatedViewController: UIViewController {
 
-    @IBOutlet weak var nowPlayingCollectionView : UICollectionView!
+    @IBOutlet weak var topRatedCollectionView : UICollectionView!
     
     var movieList : [Movies] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        CellRegisterHelper.registerCellForCollectionView(nibName: "MovieCollectionViewCell", cellId: "MovieCollectionViewCell", collectionView: nowPlayingCollectionView)
-    
-        CustomLoadingView.shared().showActivityIndicator(uiView: self.nowPlayingCollectionView)
-        loadNowPlayingMovie()
+        CellRegisterHelper.registerCellForCollectionView(nibName: "MovieCollectionViewCell", cellId: "MovieCollectionViewCell", collectionView: topRatedCollectionView)
         
+        CustomLoadingView.shared().showActivityIndicator(uiView: self.topRatedCollectionView)
+       
     }
-
-    func loadNowPlayingMovie() {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadMovie()
+    }
+    
+    func loadMovie() {
         
-        DataModel.shared().getMovies(context: managedObjectContext,route: SharedConstants.Route.NOW_PLAYING, success: { (movieList) in
+        DataModel.shared().getMovies(context: managedObjectContext,route: SharedConstants.Route.TOP_RELATED, success: { (movieList) in
             
             self.movieList = movieList
-            self.nowPlayingCollectionView.reloadData()
+            self.topRatedCollectionView.reloadData()
             CustomLoadingView.shared().hideActivityIndicator(uiView: self.view)
             
         }) { (error) in
@@ -39,10 +42,10 @@ class NowPlayingViewController: UIViewController {
         }
         
     }
-   
+    
 }
 
-extension NowPlayingViewController : UICollectionViewDataSource {
+extension TopRatedViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movieList.count
@@ -74,7 +77,7 @@ extension NowPlayingViewController : UICollectionViewDataSource {
     
 }
 
-extension NowPlayingViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension TopRatedViewController : UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let navigationVC = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! UINavigationController
@@ -89,3 +92,4 @@ extension NowPlayingViewController : UICollectionViewDelegate, UICollectionViewD
     }
     
 }
+

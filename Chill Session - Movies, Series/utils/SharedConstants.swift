@@ -16,6 +16,9 @@ class SharedConstants {
     
     enum Route {
         static let NOW_PLAYING = "now_playing"
+        static let POPULAR = "popular"
+        static let UPCOMING = "upcoming"
+        static let TOP_RELATED = "top_rated"
     }
     
     enum QueryString {

@@ -53,7 +53,27 @@ extension PopularViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCollectionViewCell", for: indexPath) as! MovieCollectionViewCell
+        var genderIdList:[String] = []
+        let toString = self.movieList[indexPath.row].genre_ids
+        if let str = toString {
+            let chars = CharacterSet(charactersIn: ",][ ")
+            genderIdList = str.components(separatedBy: chars).filter { $0 != "" }.compactMap { String($0)}
+            print(genderIdList)
+        }
         
+        DataModel.shared().getGenreList(context: managedObjectContext, route: SharedConstants.Route.GENRE, genreIds: genderIdList,success: { (genres) in
+            var category = "("
+            for index in 0..<genres.count{
+                if index == genres.count - 1{
+                    category += "\(genres[index]))"
+                }else{
+                    category += "\(genres[index]),"
+                }
+            }
+            cell.lblMovieCategory.text = category
+        }, failure: { (error) in
+            
+        })
         cell.lblMovieTitle.text = self.movieList[indexPath.row].title
         
         cell.ivMovie.loadImageUsingUrlString(url: SharedConstants.IMAGE_BASE_PATH + self.movieList[indexPath.row].poster_path!)
@@ -80,7 +100,7 @@ extension PopularViewController : UICollectionViewDelegate, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let navigationVC = self.storyboard!.instantiateViewController(withIdentifier: "DetailViewController") as! UINavigationController
-        let vc = navigationVC.childViewControllers.first as!
+        let vc = navigationVC.children.first as!
         DetailViewController
         vc.data = movieList[indexPath.row]
         self.present(navigationVC, animated: true, completion: nil)
